@@ -1,0 +1,42 @@
+Instalación de Java SE Development Kit (JDK) 8 en Oracle Linux 7
+
+Primero, instalaremos el JDK (en mi caso, la versión 8.65 x64).
+
+El JDK, se descarga  de la web de Oracle
+
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+Posteriormente, habrá que modificar la ruta de acceso al JRE; existe una versión en el sistema (1.7), 
+pero el proceso de compilación y ejecución da problemas de versiones si ésta no son las mismas, y la del JDK es 1.8; 
+debemos trabajar sobre jre-8.65 x64.
+
+Se accede como root a la carpeta en la que se descargó. Se le cambian los permisos para que pueda ejecutarse:
+
+# chmod a+x jdk-8u65-linux-x64.rpm
+
+Se instala con el comando rpm:
+
+# rpm -ivh jdk-8u65-linux-x64.rpm
+
+El JDK se instala en la ruta:
+
+/usr/java/latest
+
+Al finalizar la instalación, aún nos va a dar problemas porque, como comentábamos anteriormente, la versión del JRE 
+en la instalación por defecto de Oracle Linux es 1.7 y la del JDK es 1.8
+
+Hay que seleccionar la versión jre correcta; para ello, usamos el comando:
+
+# update-alternatives --config java
+
+Este comando nos muestra todas las versiones disponibles.  Lo aconsejable es usar el JRE de la instalación del JDK
+
+Vemos que está seleccionada la versión 7, que no se corresponde con la del JDK. En mi caso, voy a seleccionar la opción 2.
+
+Para comprobar que estamos ya trabajando sobre la versión correcta, ejecutamos en el terminal:
+
+# java –version
+
+Que nos debe devolver ahora la misma que al ejecutar:
+
+# javac –version
