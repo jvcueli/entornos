@@ -1,0 +1,10 @@
+Instalación de la versión 8.0.2 para arquitecturas de 64 bits:
+
+En primer lugar, se descarga de la web:
+
+https://netbeans.org
+
+Para instalar, se lanza el comando:
+
+# sh netbeans-8.0.2-linux.sh
+
